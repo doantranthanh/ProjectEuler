@@ -12,13 +12,25 @@ namespace PE.Tests.Problems
         {
             problem002 = new Problem002();
         }
+
         [Theory]
-        [InlineData(10, 10)]
-        [InlineData(55, 44)]
-        [InlineData(4000000, 4613732)]
-        public void ShouldReturnCorrectlySumOfEvenFibNumber(int maxNumber, int answer)
+        [InlineData(10L, 10L)]
+        [InlineData(55L, 44L)]
+        [InlineData(4000000L, 4613732L)]
+        public void ShouldReturnCorrectlySumOfEvenFibNumber(long maxNumber, long answer)
         {
             var result = problem002.SumOfEvenFibNumber(maxNumber);
+
+            result.Should().Be(answer);
+        }
+
+        [Theory]
+        [InlineData(10L, 10L)]
+        [InlineData(55L, 44L)]
+        [InlineData(4000000L, 4613732L)]
+        public void ShouldReturnCorrectlySumOfEvenFibNumberAtEveryThird(long maxNumber, long answer)
+        {
+            var result = problem002.SumOfEvenFibNumberAtEveryThird(maxNumber);
 
             result.Should().Be(answer);
         }
